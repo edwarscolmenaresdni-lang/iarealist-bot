@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: iarealist-bot
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    autoDeploy: true
+    envVars:
+      BOT_TOKEN:
+        fromDatabase:
+          name: bot-token
+          property: value
